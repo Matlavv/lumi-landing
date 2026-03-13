@@ -13,7 +13,7 @@ const MapWrapper = dynamic(() => import('./MapWrapper'), { ssr: false, loading: 
 
 export function MapFeature() {
   const mockReports = [
-    { id: '1', latitude: 50.6310, longitude: 3.0560, type: 'agression', typeLabel: "Agression", description: "Harcèlement devant la gare de Flandres.", time: "22:45" },
+    { id: '1', latitude: 50.6370, longitude: 3.0700, type: 'agression', typeLabel: "Agression", description: "Harcèlement devant la gare de Lille Flandres.", time: "22:45" },
     { id: '2', latitude: 50.6270, longitude: 3.0580, type: 'harcelement', typeLabel: "Zone mal éclairée", description: "Lampadaires éteints dans cette rue.", time: "21:30" },
     { id: '3', latitude: 50.6234, longitude: 3.0450, type: 'autre', typeLabel: "Groupe suspect", description: "Groupe agressif à l'angle.", time: "23:10" },
   ];

@@ -1,4 +1,5 @@
 import { About } from '@/components/About';
+import { EmailCapture } from '@/components/EmailCapture';
 import { FAQ } from '@/components/FAQ';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
@@ -17,6 +18,7 @@ export default function Home() {
         <About />
         <SOSFeature />
         <MapFeature />
+        <EmailCapture />
         <Professionals />
         <FAQ />
         <Waitlist />

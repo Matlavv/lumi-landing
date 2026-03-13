@@ -30,8 +30,8 @@ export function Navbar() {
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-lumi-darkbg/80 backdrop-blur-lg border-b border-zinc-200 dark:border-white/5 py-4 shadow-sm' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="relative z-10 flex items-center">
-          <Image src="/logo_text_black.png" alt="Lumi Logo" width={120} height={40} className="dark:hidden h-8 w-auto transition-transform hover:scale-105" />
-          <Image src="/logo_text_white.png" alt="Lumi Logo" width={120} height={40} className="hidden dark:block h-8 w-auto transition-transform hover:scale-105" />
+          <Image src="/logo_text_black.png" alt="Lumi Logo" width={220} height={220} className="dark:hidden h-8 w-auto transition-transform hover:scale-105" />
+          <Image src="/logo_color_text_white.png" alt="Lumi Logo" width={220} height={220} className="hidden dark:block h-12 w-auto transition-transform hover:scale-105" />
         </Link>
         
         {/* Desktop Nav */}
@@ -42,8 +42,8 @@ export function Navbar() {
             </Link>
           ))}
           <ThemeToggle />
-          <Button variant="gradient" size="sm" className="ml-2">
-            Rejoindre la liste d'attente
+          <Button variant="gradient" size="sm" className="ml-2" onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}>
+              Rejoindre la liste d&apos;attente
           </Button>
         </nav>
 
@@ -74,8 +74,8 @@ export function Navbar() {
             </Link>
           ))}
           <div className="w-full h-px bg-zinc-200 dark:bg-white/10 my-4" />
-          <Button variant="gradient" className="w-full text-lg h-14" onClick={() => setMobileMenuOpen(false)}>
-            Rejoindre la liste d'attente
+          <Button variant="gradient" className="w-full text-lg h-14" onClick={() => { setMobileMenuOpen(false); document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' }); }}>
+            Rejoindre la liste d&apos;attente
           </Button>
         </nav>
       </div>

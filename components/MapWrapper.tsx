@@ -24,7 +24,7 @@ interface MapWrapperProps {
 }
 
 export default function MapWrapper({ reports }: MapWrapperProps) {
-  const centerPosition: [number, number] = [50.6292, 3.0573]; // Lille
+  const centerPosition: [number, number] = [50.6364, 3.0708]; // Gare de Lille Flandres
 
   return (
     <MapContainer 
@@ -57,19 +57,19 @@ export default function MapWrapper({ reports }: MapWrapperProps) {
 
       {/* Red danger zone area */}
       <Circle 
-        center={[50.6310, 3.0540]} 
+        center={[50.6370, 3.0680]} 
         radius={220} 
         pathOptions={{ color: '#fd3630', fillColor: '#fd3630', fillOpacity: 0.15, stroke: true, weight: 1, dashArray: '4' }} 
       />
 
       {/* User location dot approx (Republic square in Lille usually) */}
       <Circle 
-        center={[50.6300, 3.0640]} 
+        center={[50.6364, 3.0708]} 
         radius={150} 
         pathOptions={{ color: '#5722CF', fillColor: '#5722CF', fillOpacity: 0.15, stroke: false }} 
       />
       <Circle 
-        center={[50.6300, 3.0640]} 
+        center={[50.6364, 3.0708]} 
         radius={20} 
         pathOptions={{ color: '#ffffff', fillColor: '#5722CF', fillOpacity: 1, weight: 2 }} 
       />

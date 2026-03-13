@@ -38,12 +38,28 @@ export function Waitlist() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, type: 'waitlist' }),
+      });
+      if (!res.ok) throw new Error('Erreur');
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 3000);
       setEmail('');
+    } catch {
+      setError('Une erreur est survenue. Réessayez.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,7 +83,7 @@ export function Waitlist() {
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-zinc-900 dark:text-white leading-tight transition-colors z-10">
-            Lumi arrive le <span className="text-lumi-gradient">20 Mai 2026</span>.
+            Lumi arrive en <span className="text-lumi-gradient">Mai 2026</span>.
           </h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto mb-10 transition-colors z-10">
             Inscrivez-vous sur notre liste d'attente pour être notifié de la sortie de l'application et rejoindre la communauté dès le premier jour.
@@ -132,13 +148,14 @@ export function Waitlist() {
                     exit={{ opacity: 0, scale: 0.8 }}
                     className="sm:w-auto"
                   >
-                    <Button variant="gradient" type="submit" className="py-4 px-6 rounded-xl flex items-center justify-center gap-2 w-full h-full font-bold shadow-lg shadow-lumi-violet/20">
-                      M'avertir <ArrowRight size={18} />
+                    <Button variant="gradient" type="submit" disabled={loading} className="py-4 px-6 rounded-xl flex items-center justify-center gap-2 w-full h-full font-bold shadow-lg shadow-lumi-violet/20 disabled:opacity-50">
+                      {loading ? 'Envoi...' : <>Rejoindre la liste d'attente <ArrowRight size={18} /></>}
                     </Button>
                   </motion.div>
                 )}
               </AnimatePresence>
             </form>
+            {error && <p className="text-red-500 text-sm text-center mt-3">{error}</p>}
             <p className="mt-4 text-xs text-zinc-500 transition-colors">
               Nous promettons de ne pas vous envoyer de spam. Seulement les annonces importantes.
             </p>
