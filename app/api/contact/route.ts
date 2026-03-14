@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { resend, FROM_EMAIL, CONTACT_EMAIL, AUDIENCE_ID } from '@/lib/resend';
-import { ContactNotificationEmail } from '@/components/emails/ContactNotificationEmail';
 import { ContactConfirmationEmail } from '@/components/emails/ContactConfirmationEmail';
+import { ContactNotificationEmail } from '@/components/emails/ContactNotificationEmail';
+import { AUDIENCE_ID, CONTACT_EMAIL, FROM_EMAIL, resend } from '@/lib/resend';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,26 +29,26 @@ export async function POST(req: NextRequest) {
       console.warn('RESEND_AUDIENCE_ID n\'est pas défini, le professionnel n\'a pas été sauvegardé dans Resend.');
     }
 
-    // Send notification to Lumi team
-    const { error: notifError } = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: CONTACT_EMAIL,
-      subject: `Nouveau partenaire : ${prenom} ${nom}`,
-      react: ContactNotificationEmail({ nom, prenom, email, message }),
-    });
+    // Send both emails in a single batch to avoid Resend rate limit (2 req/s)
+    const { error: batchError } = await resend.batch.send([
+      {
+        from: FROM_EMAIL,
+        to: CONTACT_EMAIL,
+        subject: `Nouvelle demande de partenariat : ${prenom} ${nom}`,
+        react: ContactNotificationEmail({ nom, prenom, email, message }),
+      },
+      {
+        from: FROM_EMAIL,
+        to: email,
+        subject: 'Lumi — Nous avons bien reçu votre demande !',
+        react: ContactConfirmationEmail({ prenom }),
+      },
+    ]);
 
-    if (notifError) {
-      console.error({ error: notifError }, 'Failed to send contact notification');
+    if (batchError) {
+      console.error({ error: batchError }, 'Failed to send contact emails');
       return NextResponse.json({ error: 'Erreur lors de l\'envoi' }, { status: 500 });
     }
-
-    // Send confirmation to the professional
-    await resend.emails.send({
-      from: FROM_EMAIL,
-      to: email,
-      subject: 'Lumi — Nous avons bien reçu votre demande !',
-      react: ContactConfirmationEmail({ prenom }),
-    });
 
     return NextResponse.json({ success: true });
   } catch (err) {

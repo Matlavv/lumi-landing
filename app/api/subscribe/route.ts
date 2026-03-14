@@ -4,7 +4,7 @@ import { WelcomeEmail } from '@/components/emails/WelcomeEmail';
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, type = 'newsletter' } = await req.json();
+    const { email } = await req.json();
 
     if (!email || typeof email !== 'string') {
       return NextResponse.json({ error: 'Email requis' }, { status: 400 });
@@ -30,8 +30,8 @@ export async function POST(req: NextRequest) {
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: email,
-      subject: type === 'waitlist' ? 'Bienvenue sur la liste d\'attente Lumi !' : 'Merci pour votre inscription à Lumi !',
-      react: WelcomeEmail({ type: type as 'waitlist' | 'newsletter' }),
+      subject: 'Merci pour votre intérêt pour Lumi ! 💜',
+      react: WelcomeEmail(),
     });
 
     if (error) {
