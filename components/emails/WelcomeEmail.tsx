@@ -12,7 +12,7 @@ export function WelcomeEmail() {
 
         {/* Title */}
         <h1 style={{ fontSize: 24, fontWeight: 700, color: '#18181b', textAlign: 'center', margin: '0 0 16px', letterSpacing: '-0.3px' }}>
-          Merci pour votre intérêt pour Lumi ! 💜
+          Merci pour l'intérêt porté à Lumi ! 💜
         </h1>
 
         <p style={{ fontSize: 15, color: '#52525b', lineHeight: 1.7, textAlign: 'center', margin: '0 0 32px' }}>

@@ -14,8 +14,15 @@ const MapWrapper = dynamic(() => import('./MapWrapper'), { ssr: false, loading: 
 export function MapFeature() {
   const mockReports = [
     { id: '1', latitude: 50.6370, longitude: 3.0700, type: 'agression', typeLabel: "Agression", description: "Harcèlement devant la gare de Lille Flandres.", time: "22:45" },
-    { id: '2', latitude: 50.6270, longitude: 3.0580, type: 'harcelement', typeLabel: "Zone mal éclairée", description: "Lampadaires éteints dans cette rue.", time: "21:30" },
+    { id: '2', latitude: 50.6270, longitude: 3.0580, type: 'eclairage', typeLabel: "Zone mal éclairée", description: "Lampadaires éteints dans cette rue.", time: "21:30" },
     { id: '3', latitude: 50.6234, longitude: 3.0450, type: 'autre', typeLabel: "Groupe suspect", description: "Groupe agressif à l'angle.", time: "23:10" },
+    { id: '4', latitude: 50.6320, longitude: 3.0630, type: 'vol', typeLabel: "Vol", description: "Vol à l'arraché signalé près de la place de la République.", time: "20:15" },
+    { id: '5', latitude: 50.6400, longitude: 3.0750, type: 'harcelement', typeLabel: "Harcèlement", description: "Harcèlement de rue signalé à plusieurs reprises.", time: "23:30" },
+    { id: '6', latitude: 50.6290, longitude: 3.0720, type: 'agression', typeLabel: "Agression", description: "Tentative d'agression à la sortie du métro.", time: "01:15" },
+    { id: '7', latitude: 50.6350, longitude: 3.0520, type: 'info', typeLabel: "Information", description: "Présence policière renforcée ce week-end.", time: "18:00" },
+    { id: '8', latitude: 50.6310, longitude: 3.0810, type: 'eclairage', typeLabel: "Éclairage défaillant", description: "Passage piéton très sombre, aucun éclairage.", time: "22:00" },
+    { id: '9', latitude: 50.6380, longitude: 3.0550, type: 'vol', typeLabel: "Vol", description: "Vol de téléphone signalé dans le parc.", time: "19:45" },
+    { id: '10', latitude: 50.6255, longitude: 3.0670, type: 'info', typeLabel: "Information", description: "Caméra de surveillance installée récemment.", time: "14:30" },
   ];
 
   return (
@@ -81,6 +88,10 @@ export function MapFeature() {
               <div className="flex items-center gap-2 bg-white dark:bg-lumi-darkcard border border-zinc-200 dark:border-lumi-darkborder px-3 py-1.5 rounded-lg transition-colors duration-500 shadow-sm">
                 <div className="w-3 h-3 rounded bg-zinc-400 dark:bg-white" />
                 <span className="text-sm font-medium text-zinc-800 dark:text-zinc-300">Éclairage</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white dark:bg-lumi-darkcard border border-zinc-200 dark:border-lumi-darkborder px-3 py-1.5 rounded-lg transition-colors duration-500 shadow-sm">
+                <div className="w-3 h-3 rounded bg-blue-500" />
+                <span className="text-sm font-medium text-zinc-800 dark:text-zinc-300">Information</span>
               </div>
             </div>
           </motion.div>

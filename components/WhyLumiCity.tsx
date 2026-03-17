@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { ShieldAlert, Map, HeartHandshake } from 'lucide-react';
+import { HeartHandshake, Map, ShieldAlert } from 'lucide-react';
 
 interface WhyLumiCityProps {
   cityName: string;
@@ -27,7 +27,7 @@ export function WhyLumiCity({ cityName }: WhyLumiCityProps) {
     {
       icon: HeartHandshake,
       title: "L'entraide locale",
-      description: "Vous n'êtes jamais seul. En partenariat avec les professionnels de santé, trouvez des ressources et des soutiens adaptés en cas de problème.",
+      description: "Vous n'êtes jamais seul. En partenariat avec des structures partenaires (associations de psychologues, médecins, thérapeutes, ...), trouvez des ressources et des soutiens adaptés en cas de problème.",
       color: "#f877af",
       bgClass: "bg-lumi-pink/10",
       borderClass: "border-lumi-pink/20",

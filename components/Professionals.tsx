@@ -35,7 +35,7 @@ export function Professionals() {
 
   return (
     <section id="professionals" className="py-24 bg-lumi-violet/5 dark:bg-lumi-violet/10 relative overflow-hidden transition-colors duration-500">
-      <BlurOrb color="bg-lumi-violet" className="top-20 left-10 w-96 h-96" delay={0.2} duration={10} />
+      <BlurOrb color="bg-lumi-violet" className="-top-42 -left-32 md:top-20 md:left-10 w-96 h-96" delay={0.2} duration={10} />
       <BlurOrb color="bg-lumi-pink" className="bottom-40 right-10 w-80 h-80" delay={0.5} duration={12} />
       <StarShape className="top-32 right-32 w-8 h-8 hidden lg:block" color="text-lumi-violet/40" delay={1} />
       <StarShape className="bottom-32 left-32 w-10 h-10 hidden lg:block" color="text-lumi-pink/40" delay={1.5} />
@@ -43,13 +43,13 @@ export function Professionals() {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block py-1.5 px-4 rounded-full bg-lumi-violet/10 text-lumi-violet font-semibold text-sm mb-6 border border-lumi-violet/20 shadow-sm">
-            Espace Professionnels
+            Espace Pro
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-zinc-900 dark:text-white leading-tight transition-colors duration-500">
             Rejoignez notre réseau <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-lumi-violet to-lumi-pink">d&apos;accompagnement</span>.
           </h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed transition-colors duration-500 relative z-10">
-            Lumi ne s&apos;arrête pas au moment de l&apos;urgence. Nous mettons en relation nos utilisateurs victimes d&apos;agression avec des professionnels de santé qualifiés (psychologues, thérapeutes, médecins) pour un suivi post-traumatique adapté.
+            Lumi ne s&apos;arrête pas au moment de l&apos;urgence. Nous mettons en relation nos utilisateurs victimes d&apos;agression avec des structures partenaires (associations de psychologues, médecins, thérapeutes, ...) pour un suivi post-traumatique adapté.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export function Professionals() {
             <IconBadge icon={Stethoscope} colorTheme="violet" size="lg" className="mb-2" />
             <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-3 transition-colors relative z-10">Soutien Global</h3>
             <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed transition-colors relative z-10">
-              Faites partie d&apos;un écosystème bienveillant qui repense la sécurité féminine et urbaine de bout en bout.
+              Faites partie d&apos;un écosystème bienveillant qui repense la sécurité urbaine de bout en bout.
             </p>
           </motion.div>
         </div>
@@ -109,8 +109,9 @@ export function Professionals() {
         >
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="relative z-10 flex flex-col items-center">
-            <h3 className="text-3xl font-bold mb-4">Vous êtes professionnel de santé ?</h3>
+            <h3 className="text-3xl font-bold mb-4">Vous êtes une structure d'accompagnement ?</h3>
             <p className="text-white/90 text-lg mb-8 max-w-2xl">
+              Vous êtes une structure pouvant accompagner des personnes victimes d'agression ? Un professionnel de santé ? 
               Contactez-nous pour échanger sur un partenariat. Nous cherchons constamment à enrichir notre réseau d&apos;accompagnants pour proposer la meilleure aide possible à notre communauté.
             </p>
             <Button 

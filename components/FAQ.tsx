@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "Que se passe-t-il après une agression ?",
-    answer: "Lumi ne vous lâche pas une fois le danger écarté. L'application propose un onglet Ressources vous permettant d'entrer en contact facilement avec nos professionnels de santé partenaires (psychologues, médecins) ainsi que des associations d'accompagnement juridique et psychologique."
+    answer: "Lumi ne vous lâche pas une fois le danger écarté. L'application propose un onglet Ressources vous permettant d'entrer en contact facilement avec nos structures partenaires (associations de psychologues, médecins, thérapeutes, ...) ainsi que des associations d'accompagnement juridique et psychologique."
   },
   {
     question: "Est-ce que l'application est gratuite ?",

@@ -13,10 +13,11 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      if (mobileMenuOpen) setMobileMenuOpen(false);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { name: 'Vision', href: '#about' },
@@ -30,8 +31,8 @@ export function Navbar() {
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-lumi-darkbg/80 backdrop-blur-lg border-b border-zinc-200 dark:border-white/5 py-4 shadow-sm' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="relative z-10 flex items-center">
-          <Image src="/logo_text_black.png" alt="Lumi Logo" width={220} height={220} className="dark:hidden h-8 w-auto transition-transform hover:scale-105" />
-          <Image src="/logo_color_text_white.png" alt="Lumi Logo" width={220} height={220} className="hidden dark:block h-12 w-auto transition-transform hover:scale-105" />
+          <Image src="/logo_text_black.png" alt="Lumi Logo" width={220} height={220} className="dark:hidden h-8 w-auto transition-transform hover:scale-105" style={{ width: 'auto' }} />
+          <Image src="/logo_color_text_white.png" alt="Lumi Logo" width={220} height={220} className="hidden dark:block h-12 w-auto transition-transform hover:scale-105" style={{ width: 'auto' }} />
         </Link>
         
         {/* Desktop Nav */}

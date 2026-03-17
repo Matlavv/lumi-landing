@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { resend, FROM_EMAIL, AUDIENCE_ID } from '@/lib/resend';
 import { WelcomeEmail } from '@/components/emails/WelcomeEmail';
+import { AUDIENCE_ID, FROM_EMAIL, resend } from '@/lib/resend';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: email,
-      subject: 'Merci pour votre intérêt pour Lumi ! 💜',
+      subject: 'Merci pour l\'intérêt porté à Lumi ! 💜',
       react: WelcomeEmail(),
     });
 
