@@ -69,7 +69,7 @@ export function Hero() {
             <Button
               variant="outline"
               className="w-full sm:w-auto px-8 py-4 rounded-2xl flex items-center justify-center gap-3 border-zinc-300 dark:border-lumi-darkborder text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 font-bold text-base"
-              onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScjAOACEgcEsGqkGKbPPGZS3xBDX0XAE2dFINrdoSEs21UtnQ/viewform', '_blank')}
+              onClick={() => window.open('https://forms.gle/T78gS1ZM8Zs3kq3e9', '_blank')}
             >
               <ClipboardList size={20} />
               Participer au sondage
