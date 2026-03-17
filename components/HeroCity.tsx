@@ -41,7 +41,7 @@ export function HeroCity({ cityName }: { cityName: string }) {
             <Button
               variant="gradient"
               className="w-full sm:w-auto px-8 py-4 rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-lumi-violet/20 font-bold text-base"
-              onClick={() => window.open('https://forms.google.com/', '_blank')}
+              onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScjAOACEgcEsGqkGKbPPGZS3xBDX0XAE2dFINrdoSEs21UtnQ/viewform', '_blank')}
             >
               <ClipboardList size={20} />
               Participer au sondage
